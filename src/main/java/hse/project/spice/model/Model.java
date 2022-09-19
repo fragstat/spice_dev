@@ -1,7 +1,6 @@
 package hse.project.spice.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -9,7 +8,10 @@ import javax.persistence.*;
 @Table(name = "model")
 @Getter
 @Setter
-public class ModelEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Model {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

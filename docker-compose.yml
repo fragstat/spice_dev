@@ -1,20 +1,38 @@
-version: '2'
+version: '3.7'
 
 services:
   app:
-    image: 'back:latest'
+    image: 'spice_back:latest'
     build:
       context: .
     container_name: app
     depends_on:
       - db
+      - minio
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
+      MINIO_ROOT_USER: adminminio
+      MINIO_ROOT_PASSWORD: adminminio
+      MINIO_BUCKET_NAME: bucket
+      MINIO_URL: http://minio:9000
     ports:
       - "8081:8081"
 
   db:
     image: 'postgres:latest'
     container_name: db
+    ports:
+      - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=root
+
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: adminminio
+      MINIO_ROOT_PASSWORD: adminminio
+    command: server /data --console-address ":9001"

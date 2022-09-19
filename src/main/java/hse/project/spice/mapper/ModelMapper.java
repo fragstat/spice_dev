@@ -1,11 +1,11 @@
 package hse.project.spice.mapper;
 
 import hse.project.spice.dto.ModelDto;
-import hse.project.spice.model.ModelEntity;
+import hse.project.spice.model.Model;
 
 public class ModelMapper {
 
-    public static ModelDto toDto(ModelEntity model) {
+    public static ModelDto toDto(Model model) {
         return ModelDto.builder()
                 .name(model.getName())
                 .manufacturer(model.getManufacturer())
