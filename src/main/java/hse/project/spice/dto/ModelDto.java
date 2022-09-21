@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class ModelDto {
+    private Long id;
     private String name;
     private String manufacturer;
     private Double maxI;

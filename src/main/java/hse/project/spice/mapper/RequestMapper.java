@@ -6,8 +6,8 @@ import hse.project.spice.model.Request;
 public class RequestMapper {
 
     public static RequestDto toDto(Request request) {
-        return new RequestDto(request.getFio(), request.getOrg(), request.getEmail(), request.getPhone(),
-                request.getType(), request.getComment());
+        return new RequestDto(request.getId(), request.getFio(), request.getOrg(), request.getEmail(),
+                request.getPhone(), request.getType(), request.getComment());
     }
 
     public static Request toEntity(RequestDto requestDto) {

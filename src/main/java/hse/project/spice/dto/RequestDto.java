@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class RequestDto {
+    private Long id;
     private String fio;
     private String org;
     private String email;

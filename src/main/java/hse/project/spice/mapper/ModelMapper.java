@@ -7,6 +7,7 @@ public class ModelMapper {
 
     public static ModelDto toDto(Model model) {
         return ModelDto.builder()
+                .id(model.getId())
                 .name(model.getName())
                 .manufacturer(model.getManufacturer())
                 .maxU(model.getMaxU())
