@@ -7,10 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/model")
@@ -32,6 +30,11 @@ public class ModelController {
         }
         modelService.createModel(request);
         return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteModel(@PathVariable Long id) {
+        modelService.deleteModel(id);
     }
 
 }

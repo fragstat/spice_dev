@@ -9,4 +9,6 @@ public interface ModelService {
     List<ModelDto> getModelList();
 
     void createModel(CreateModelRequest request);
+
+    void deleteModel(Long id);
 }
