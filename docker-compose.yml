@@ -1,11 +1,11 @@
 version: '3.7'
 
 services:
-  app:
-    image: 'spice_back:latest'
+  back:
+    image: 'cr.yandex/crpdfuj6ilffi9dkqfts/spice_back:latest'
     build:
       context: .
-    container_name: app
+    container_name: back
     depends_on:
       - db
       - minio
@@ -17,6 +17,12 @@ services:
       MINIO_URL: http://minio:9000
     ports:
       - "8081:8081"
+
+  ui:
+    image: 'cr.yandex/crpdfuj6ilffi9dkqfts/spice_ui:latest'
+    container_name: ui
+    ports:
+      - "8080:8080"
 
   db:
     image: 'postgres:latest'

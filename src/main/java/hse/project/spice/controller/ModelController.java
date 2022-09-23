@@ -45,8 +45,8 @@ public class ModelController {
         modelService.deleteModel(id);
     }
 
-    @PostMapping(value = "/{id}", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE})
-    public void editModel(EditModelRequest request, @PathVariable Long id) {
+    @PostMapping(value = "/{id}")
+    public void editModel(@RequestBody EditModelRequest request, @PathVariable Long id) {
         modelService.editModel(id, request);
     }
 

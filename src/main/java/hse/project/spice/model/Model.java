@@ -19,13 +19,13 @@ public class Model {
     private String name;
     private String manufacturer;
     @Column(name = "max_i")
-    private Double maxI;
+    private Double maxI = .0d;
     @Column(name = "max_u")
-    private Double maxU;
+    private Double maxU = .0d;
     @Column(name = "max_prob_u")
-    private Double maxProbU;
+    private Double maxProbU = .0d;
     @Column(name = "max_p")
-    private Double maxP;
+    private Double maxP = .0d;
     private String box;
     private String useConditions;
     private String techLink;

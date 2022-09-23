@@ -34,12 +34,14 @@ public class ModelServiceImpl implements ModelService {
         Model model = Model.builder()
                 .name(request.getName())
                 .manufacturer(request.getManufacturer())
-                .maxI(request.getMaxI())
-                .maxP(request.getMaxP())
-                .maxU(request.getMaxU())
-                .maxProbU(request.getMaxProbU())
+                .maxI(request.getMaxI() != null ? request.getMaxI() : .0d)
+                .maxP(request.getMaxP() != null ? request.getMaxP() : .0d)
+                .maxU(request.getMaxU() != null ? request.getMaxU() : .0d)
+                .maxProbU(request.getMaxProbU() != null ? request.getMaxProbU() : .0d)
                 .useConditions(request.getUseConditions())
                 .box(request.getBox())
+                .techLink("")
+                .link("")
                 .build();
         if (!"".equals(request.getTech().getOriginalFilename())) {
             model.setTechLink("http://localhost:8081/file/" + minioService.uploadFile(request.getTech()));
